@@ -1,0 +1,58 @@
+*** Processor Status Flag Register(P) - Reference ***
+|1/0|  ; Carry Flag
+|1/0|  ; Zero Flag
+|1/0|  ; IRQ Disable Flag
+|1/0|  ; Decimal Mode Flag
+|1/0|  ; Break Command Flag
+|***|  ; Unused bit
+|1/0|  ; Overflow Flag
+|1/0|  ; Negative Flag
+
+Numbers System Prefixes
+# ; Decimal Number
+$ ; Hexadecimal Number
+% ; Binary number
+
+Modes
+LDA #80  ; (Immediate Mode) When the number is prefixed with # this loads the register with the literal decimal value 80
+LDA $80  ; (Absolute (Zero Page) Mode) When the number is prefixed with $ this loads the register with the value that is in memory address $80
+LDA #$80 ; (Immediate Mode) loads the register with the literal hexadecimal value with the hexadecimal number 80
+
+processor <processor name> ; tells the assembler what processor will be the target of the code
+seg code ; tells the assembler this is a segment of code
+org ; defines the code origin at a specific memory address
+
+LD<Register> ;Loads a register with a value
+ST<Register> ;Takes a value in a register and stores it in memory
+
+ADC ; add to the accumulator
+    ; with carry
+SBC ; subtract from the accumulator
+    ; with carry
+^   CLC ; clears the carry flag and usually is performed before addition
+    SEC ; Sets the carry flag and is usually performed before subtraction
+
+IN<Register> ; Increments a register and is similar to ++
+DE<Register> ; Decrements a register and is similar to --
+DEC          ; Decrements memory
+^   ; Sets processor status flags
+    z = 1 if 0 ; otherwise 1
+    N = if 7 bit (sign bit) is 1; 0 otherwise
+
+JMP is like GOTO another line of code
+
+Branches
+
+BCC  ; Branch if carry flag is 0 ; c == 0
+BCS  ; Branch if carry flag is 1 ; c == 1
+BEQ  ; Branch if zero flag is 1  ; z == 0
+BNE  ; Branch if zero flag is 0  ; z == 1
+BMI  ; Branch on minus           ; N == 1
+BPL  ; Branch on plus            ; N == 0
+BVC  ; Branch on overflow clear  ; V == 0
+BVS  ; Branch on overflow set    ; V == 1
+
+Transfer
+
+txs         ; Transfers the X register to the (S)tack pointer
+

@@ -1,0 +1,14 @@
+7 scanlines blue
+7 scanlines horizontal yellow border of the box
+PF0 = 1110, PF1 = 1111 1111 PL2 = 1111
+REFLECT = 1
+164 scanlines the vertical borders of the box
+PF0 = 0010 PF1 = 0000 0000 PLF2 = 0000
+REFLECT = 1
+7 scanlines horizontal yellow border of the box
+PF0 = 1110 , PF1 = 1111 1111 PL2 = 1111
+REFLECT = 1
+7 scanlines blue
+
+7 scanlines
+7 scanlines
